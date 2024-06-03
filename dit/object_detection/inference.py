@@ -56,7 +56,14 @@ def main():
     predictor = DefaultPredictor(cfg)
     
     # Step 5: run inference
-    img = cv2.imread(args.image_path)
+    # check if image path valid
+    try:
+        print("Reading image from", args.image_path)
+        img = cv2.imread(args.image_path)
+        print("Image shape:", img.shape)
+    except Exception as e:
+        print(e)
+        return
 
     md = MetadataCatalog.get(cfg.DATASETS.TEST[0])
     if cfg.DATASETS.TEST[0]=='icdar2019_test':

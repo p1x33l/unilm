@@ -20,16 +20,6 @@ def main():
         type=str,
         required=True,
     )
-    # check if image path is valid
-    print("Checking if image path is valid...")
-    try:
-        img = cv2.imread(args.image_path)
-        if img is None:
-            raise FileNotFoundError
-    except FileNotFoundError:
-        print("Image path is invalid. Please provide a valid path.")
-        return
-    print("Image path is valid.")
     parser.add_argument(
         "--output_file_name",
         help="Name of the output visualization file.",
@@ -66,7 +56,6 @@ def main():
     predictor = DefaultPredictor(cfg)
     
     # Step 5: run inference
-    # check if image path valid
     try:
         print("Reading image from", args.image_path)
         img = cv2.imread(args.image_path)

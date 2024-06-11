@@ -73,15 +73,15 @@ def main(args):
     register_coco_instances(
         "icdar2019_train",
         {},
-        "data/train.json",
-        "data/train"
+        "/kaggle/working/data/train.json",
+        "/kaggle/working/data/train"
     )
 
     register_coco_instances(
         "icdar2019_test",
         {},
-        "data/test.json",
-        "data/test"
+        "/kaggle/working/data/test.json",
+        "/kaggle/working/data/test"
     )
 
     cfg = setup(args)
